@@ -14,25 +14,34 @@ MINPASSLENGTH=$(samba-tool domain passwordsettings show | grep "Minimum password
 MINPASSAGE=$(samba-tool domain passwordsettings show | grep "Minimum password age (days):" | cut -d ":" -f2 | xargs)
 MAXPASSAGE=$(samba-tool domain passwordsettings show | grep "Maximum password age (days):" | cut -d ":" -f2 | xargs)
 
+# FSMO ROLES
+SCHEMAMASTER=$(samba-tool fsmo show |grep "SchemaMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
+INFRAMASTER=$(samba-tool fsmo show |grep "InfrastructureMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
+RIDMASTER=$(samba-tool fsmo show |grep "RidAllocationMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
+PDCMASTER=$(samba-tool fsmo show |grep "PdcEmulationMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
+NAMINGMASTER=$(samba-tool fsmo show |grep "DomainNamingMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
+DDNSMASTER=$(samba-tool fsmo show |grep "DomainDnsZonesMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
+FDNSMASTER=$(samba-tool fsmo show |grep "ForestDnsZonesMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
+
 whiptail --msgbox \
 ".:: Samba Active Directory Domain Controller Server Report ::. \
 \n---------------------------------------------------------------- \
-\nHostName                : $SERVERNAME \
-\nServer IP Addr.         : $SERVERIP \
-\n\nDomain Name           : $DOMAINNAME \
-\nServer Role             : $SERVERROLE \
-\nForest Level            : $FORESTLEVEL \
-\nDomain Level            : $DOMAINLEVEL \
-\nLowest Level            : $LOWESTLEVEL \
-\nDB Check Result         : $DBCHECKRESULT \
-\nPassword Complexity     : $PASSCOMPLEX \
-\nPassword History        : $PASSHISTORY \
-\nMinimum Password Length : $MINPASSLENGTH \
-\nMinimum Password Age    : $MINPASSAGE \
-\nMaximum Password Age    : $MAXPASSAGE \
+\nHostName                 : $SERVERNAME \
+\nServer IP Addr.          : $SERVERIP \
+\nDomain Name              : $DOMAINNAME \
+\nServer Role              : $SERVERROLE \
+\nForest Level             : $FORESTLEVEL \
+\nDomain Level             : $DOMAINLEVEL \
+\nLowest Level             : $LOWESTLEVEL \
+\nDB Check Result          : $DBCHECKRESULT \
+\nPassword Complexity      : $PASSCOMPLEX \
+\nPassword History         : $PASSHISTORY \
+\nMinimum Password Length  : $MINPASSLENGTH \
+\nMinimum Password Age     : $MINPASSAGE \
+\nMaximum Password Age     : $MAXPASSAGE \
 \n\n---------------------------------------------------------------- \
 \nhttps://github.com/eesmer/SambaAD-HelperScripts \
-\nhttps://github.com/eesmer/sambadtui \
+\nhttps://github.com/eesmer/sambad-tui \
 \nhttps://github.com/eesmer/DebianDC" 0 0 0
 #20 90 45
 
