@@ -45,6 +45,8 @@ whiptail --msgbox \
 \nRID Master DC            : $RIDMASTER \
 \nPDC Master DC            : $PDCMASTER \
 \nDomain Naming Master DC  : $NAMINGMASTER \
+\nDomain DNS Master DC     : $DDNSMASTER \
+\nForest DNS Master DC     : $FDNSMASTER \
 \n\n---------------------------------------------------------------- \
 \nhttps://github.com/eesmer/SambaAD-HelperScripts \
 \nhttps://github.com/eesmer/sambad-tui \
