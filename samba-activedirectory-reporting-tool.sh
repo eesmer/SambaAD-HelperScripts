@@ -39,6 +39,12 @@ whiptail --msgbox \
 \nMinimum Password Length  : $MINPASSLENGTH \
 \nMinimum Password Age     : $MINPASSAGE \
 \nMaximum Password Age     : $MAXPASSAGE \
+\n---------------------------------------------------------------- \
+\nSchema Master DC         : $SCHEMAMASTER \
+\nInfrastructure Master DC : $INFRAMASTER \
+\nRID Master DC            : $RIDMASTER \
+\nPDC Master DC            : $PDCMASTER \
+\nDomain Naming Master DC  : $NAMINGMASTER \
 \n\n---------------------------------------------------------------- \
 \nhttps://github.com/eesmer/SambaAD-HelperScripts \
 \nhttps://github.com/eesmer/sambad-tui \
