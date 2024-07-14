@@ -8,4 +8,10 @@ lanman auth = no
 ntlm auth = yes
 client lanman auth = yes
 ```
----
+
+- **Allow to only NTLMv2**
+```
+ntlm auth = ntlmv2-only
+```
+
+
