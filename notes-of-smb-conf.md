@@ -1,9 +1,12 @@
-**NTLM versions compatibility** <br
+**NTLM versions compatibility** <br>
 
-lanman auth = no <br>
-ntlm auth = yes <br>
-client lanman auth = yes <br>
+**Allow to NTLMv1 and later** <br>
 
+```
+lanman auth = no
+ntlm auth = yes
+client lanman auth = yes
+```
 
-Setting ntlm auth=yes allows NTLMv1 and later.
+Setting ntlm auth=yes allows NTLMv1 and later. <br>
 This allows Windows to connect with less security but a higher level of compliance.
