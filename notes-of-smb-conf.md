@@ -1,6 +1,5 @@
-**NTLM versions compatibility** <br>
-
-**Allow to NTLMv1 and later** <br>
+### NTLM versions compatibility
+- **Allow to NTLMv1 and later** <br>
 Setting ntlm auth=yes allows NTLMv1 and later. <br>
 This allows Windows to connect with less security but a higher level of compliance.
 
