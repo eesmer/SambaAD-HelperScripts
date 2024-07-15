@@ -15,3 +15,10 @@ wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/samba
 ```
 bash  samba-activedirectory-installer.sh
 ```
+
+---
+
+#### Samba Active Directory Reporting Tool
+```
+wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/samba-activedirectory-installer.sh
+```
