@@ -10,3 +10,6 @@ These repos contain collaborative work. <br>
 ```
 wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/samba-activedirectory-installer.sh
 ```
+```
+bash  samba-activedirectory-installer.sh
+```
