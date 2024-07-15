@@ -8,7 +8,7 @@ These repos contain collaborative work. <br>
 
 <br>
 
-#### Samba Active Directory Domain Controller Installer
+#### Samba Active Directory Installer
 ```
 wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/samba-activedirectory-installer.sh
 ```
