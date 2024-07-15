@@ -7,3 +7,6 @@ These repos contain collaborative work. <br>
 ---
 
 ### Samba Active Directory Domain Controller Installer
+```
+wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/
+```
