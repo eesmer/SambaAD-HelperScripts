@@ -20,5 +20,8 @@ bash  samba-activedirectory-installer.sh
 
 #### Samba Active Directory Reporting Tool
 ```
-wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/samba-activedirectory-installer.sh
+wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/samba-activedirectory-reporting-tool.sh
+```
+```
+bash samba-activedirectory-reporting-tool.sh
 ```
