@@ -23,6 +23,8 @@ NAMINGMASTER=$(samba-tool fsmo show |grep "DomainNamingMasterRole" |cut -d "," -
 DDNSMASTER=$(samba-tool fsmo show |grep "DomainDnsZonesMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
 FDNSMASTER=$(samba-tool fsmo show |grep "ForestDnsZonesMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
 
+DBCHECK=$(samba-tool dbcheck | grep "Checked")
+
 whiptail --msgbox \
 ".:: Samba Active Directory Domain Controller Server Report ::. \
 \n---------------------------------------------------------------- \
@@ -47,6 +49,7 @@ whiptail --msgbox \
 \nDomain Naming Master DC  : $NAMINGMASTER \
 \nDomain DNS Master DC     : $DDNSMASTER \
 \nForest DNS Master DC     : $FDNSMASTER \
+\nDB Check                 : $DBCHECK \
 \n\n---------------------------------------------------------------- \
 \nhttps://github.com/eesmer/SambaAD-HelperScripts \
 \nhttps://github.com/eesmer/sambad-tui \
