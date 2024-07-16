@@ -57,5 +57,4 @@ exit 1
 
 #samba-tool domain info $SERVER
 samba-tool processes
-samba-tool domain passwordsettings show
 samba-tool ou listobjects OU="Domain Controllers"
