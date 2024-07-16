@@ -23,8 +23,6 @@ NAMINGMASTER=$(samba-tool fsmo show |grep "DomainNamingMasterRole" |cut -d "," -
 DDNSMASTER=$(samba-tool fsmo show |grep "DomainDnsZonesMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
 FDNSMASTER=$(samba-tool fsmo show |grep "ForestDnsZonesMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
 
-DBCHECK=$(samba-tool dbcheck | grep "Checked")
-
 whiptail --msgbox \
 ".:: Samba Active Directory Domain Controller Server Report ::. \
 \n---------------------------------------------------------------- \
@@ -35,7 +33,9 @@ whiptail --msgbox \
 \nForest Level             : $FORESTLEVEL \
 \nDomain Level             : $DOMAINLEVEL \
 \nLowest Level             : $LOWESTLEVEL \
+\n---------------------------------------------------------------- \
 \nDB Check Result          : $DBCHECKRESULT \
+\n---------------------------------------------------------------- \
 \nPassword Complexity      : $PASSCOMPLEX \
 \nPassword History         : $PASSHISTORY \
 \nMinimum Password Length  : $MINPASSLENGTH \
@@ -50,14 +50,11 @@ whiptail --msgbox \
 \nDomain DNS Master DC     : $DDNSMASTER \
 \nForest DNS Master DC     : $FDNSMASTER \
 \n\n---------------------------------------------------------------- \
-\nDB Check                 : $DBCHECK \
-\n\n---------------------------------------------------------------- \
 \nhttps://github.com/eesmer/SambaAD-HelperScripts" 0 0 0
 #20 90 45
 
 exit 1
 
-samba-tool domain level show
 #samba-tool domain info $SERVER
 samba-tool processes
 samba-tool domain passwordsettings show
