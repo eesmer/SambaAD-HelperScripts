@@ -49,6 +49,7 @@ whiptail --msgbox \
 \nDomain Naming Master DC  : $NAMINGMASTER \
 \nDomain DNS Master DC     : $DDNSMASTER \
 \nForest DNS Master DC     : $FDNSMASTER \
+\n\n---------------------------------------------------------------- \
 \nDB Check                 : $DBCHECK \
 \n\n---------------------------------------------------------------- \
 \nhttps://github.com/eesmer/SambaAD-HelperScripts \
