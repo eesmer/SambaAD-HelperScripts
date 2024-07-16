@@ -52,17 +52,13 @@ whiptail --msgbox \
 \n\n---------------------------------------------------------------- \
 \nDB Check                 : $DBCHECK \
 \n\n---------------------------------------------------------------- \
-\nhttps://github.com/eesmer/SambaAD-HelperScripts \
-\nhttps://github.com/eesmer/sambad-tui \
-\nhttps://github.com/eesmer/DebianDC" 0 0 0
+\nhttps://github.com/eesmer/SambaAD-HelperScripts" 0 0 0
 #20 90 45
 
 exit 1
 
 samba-tool domain level show
 #samba-tool domain info $SERVER
-
 samba-tool processes
-samba-tool dbcheck
 samba-tool domain passwordsettings show
 samba-tool ou listobjects OU="Domain Controllers"
