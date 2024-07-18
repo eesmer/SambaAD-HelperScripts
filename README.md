@@ -15,9 +15,6 @@ wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/samba
 ```
 bash  samba-activedirectory-installer.sh
 ```
-
-$${\color{red}Samba Active Directory Installer \space \color{darkblue}To \space \color{darkgreen}Stackoverflow}$$
-
 ---
 
 ### $${\color{green}Samba Active Directory Reporting Tool}$$
