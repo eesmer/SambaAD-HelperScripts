@@ -8,7 +8,6 @@ These repos contain collaborative work. <br>
 
 <br>
 
-#### Samba Active Directory Installer
 ### $${\color{green}Samba Active Directory Installer}$$
 ```
 wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/samba-activedirectory-installer.sh
@@ -21,7 +20,7 @@ $${\color{red}Samba Active Directory Installer \space \color{darkblue}To \space 
 
 ---
 
-#### Samba Active Directory Reporting Tool
+### $${\color{green}Samba Active Directory Reporting Tool}$$
 ```
 wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/samba-activedirectory-reporting-tool.sh
 ```
