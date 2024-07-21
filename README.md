@@ -11,12 +11,7 @@ These repos contain collaborative work. <br>
 [SambaActiveDirectory-Installer](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/pages/SambaActiveDirectory-Installer.md)
 
 ### $${\color{green}Samba Active Directory Installer}$$
-```
-wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/samba-activedirectory-installer.sh
-```
-```
-bash  samba-activedirectory-installer.sh
-```
+
 ---
 
 ### $${\color{green}Samba Active Directory Reporting Tool}$$
