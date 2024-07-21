@@ -37,8 +37,6 @@ whiptail --msgbox \
 \nDomain Level             : $DOMAINLEVEL \
 \nLowest Level             : $LOWESTLEVEL \
 \n---------------------------------------------------------------- \
-\nDB Check Result          : $DBCHECKRESULT \
-\n---------------------------------------------------------------- \
 \nPassword Complexity      : $PASSCOMPLEX \
 \nPassword History         : $PASSHISTORY \
 \nMinimum Password Length  : $MINPASSLENGTH \
@@ -57,6 +55,7 @@ whiptail --msgbox \
 \n---------------------------------------------------------------- \
 \n$SCHEMAINFO \
 \n---------------------------------------------------------------- \
+\nDB Check Result          : $DBCHECKRESULT \
 \nDomain DB Size           : $DBSIZE \
 \n\n---------------------------------------------------------------- \
 \nhttps://github.com/eesmer/SambaAD-HelperScripts" 0 0 0
