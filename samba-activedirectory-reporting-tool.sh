@@ -23,6 +23,8 @@ NAMINGMASTER=$(samba-tool fsmo show |grep "DomainNamingMasterRole" |cut -d "," -
 DDNSMASTER=$(samba-tool fsmo show |grep "DomainDnsZonesMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
 FDNSMASTER=$(samba-tool fsmo show |grep "ForestDnsZonesMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
 
+samba-tool ldapcmp ldap://localhost ldap://localhost | grep "Result for" | awk {'print $4,$5'}
+
 whiptail --msgbox \
 ".:: Samba Active Directory Domain Controller Server Report ::. \
 \n---------------------------------------------------------------- \
