@@ -24,6 +24,7 @@ DDNSMASTER=$(samba-tool fsmo show |grep "DomainDnsZonesMasterRole" |cut -d "," -
 FDNSMASTER=$(samba-tool fsmo show |grep "ForestDnsZonesMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
 
 SCHEMAINFO=$(samba-tool ldapcmp ldap://localhost ldap://localhost --filter=objectclass=schema | grep "Result for" | awk {'print $4,$5'})
+DBSIZE=$(du -skh /var/lib/samba/private/sam.ldb.d/)
 
 whiptail --msgbox \
 ".:: Samba Active Directory Domain Controller Server Report ::. \
@@ -55,6 +56,8 @@ whiptail --msgbox \
 \nAD, Domain, Configuration and Schema Test Results \
 \n---------------------------------------------------------------- \
 \n$SCHEMAINFO \
+\n---------------------------------------------------------------- \
+\nDomain DB Size           : $DBSIZE \
 \n\n---------------------------------------------------------------- \
 \nhttps://github.com/eesmer/SambaAD-HelperScripts" 0 0 0
 #20 90 45
