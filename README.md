@@ -8,6 +8,8 @@ These repos contain collaborative work. <br>
 
 <br>
 
+[SambaAD-TUI](https://github.com/eesmer/SambaAD-HelperScripts/pages/SambaActiveDirectory-Installer.md)
+
 ### $${\color{green}Samba Active Directory Installer}$$
 ```
 wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/samba-activedirectory-installer.sh
