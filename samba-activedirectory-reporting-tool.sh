@@ -53,6 +53,7 @@ whiptail --msgbox \
 \nForest DNS Master DC     : $FDNSMASTER \
 \n---------------------------------------------------------------- \
 \nAD, Domain, Configuration and Schema Test Results \
+\n---------------------------------------------------------------- \
 \n$SCHEMAINFO \
 \n\n---------------------------------------------------------------- \
 \nhttps://github.com/eesmer/SambaAD-HelperScripts" 0 0 0
