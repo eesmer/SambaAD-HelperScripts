@@ -9,6 +9,7 @@ These repos contain collaborative work. <br>
 <br>
 
 - [Samba Active Directory Installer](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/pages/SambaActiveDirectory-Installer.md)
+- [Samba Active Directory Reporting](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/pages/SambaActiveDirectory-Reporting.md)
 
 ### $${\color{green}Samba Active Directory Reporting Tool}$$
 ```
