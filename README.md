@@ -12,3 +12,4 @@ These repos contain collaborative work. <br>
 - [Samba Active Directory Reporting](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/pages/SambaActiveDirectory-Reporting.md)
 
 ---
+- [smb.conf ](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/docs/notes-of-smb-conf.md)
