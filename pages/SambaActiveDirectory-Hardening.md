@@ -2,7 +2,7 @@
 
 
 ```
-wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/samba-activedirectory-hardening.sh
+wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/scripts/samba-activedirectory-hardening.sh
 ```
 ```
 bash  samba-activedirectory-hardening.sh
