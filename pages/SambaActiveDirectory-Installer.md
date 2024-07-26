@@ -2,7 +2,7 @@
 
 
 ```
-wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/samba-activedirectory-installer.sh
+wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/scripts/samba-activedirectory-installer.sh
 ```
 ```
 bash  samba-activedirectory-installer.sh
