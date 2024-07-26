@@ -2,7 +2,7 @@
 
 
 ```
-wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/samba-activedirectory-reporting-tool.sh
+wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/scripts/samba-activedirectory-reporting-tool.sh
 ```
 ```
 bash  samba-activedirectory-reporting-tool.sh
