@@ -47,7 +47,7 @@ if [ ! "$REP" = "DEB" ]; then
 	$NOCOL
 fi
 VER=$(cat /etc/debian_version | cut -d "." -f1)
-if [ "$VER" -gt "11" ]; then
+if [ "$VER" = "11" ]; then
 	$RED
 	echo -e
 	echo "-------------------------------------------------------------------------------------"
