@@ -52,7 +52,7 @@ fi
 }
 
 SAMBAAD_INSTALL() {
-        HOSTNAME=$(whiptail --inputbox "Enter DC Machine Hostname" 8 39 --title "DC Hostname" 3>&1 1>&2 2>&3)
+	HNAME=$(whiptail --inputbox "Enter DC Machine Hostname" 8 39 --title "DC Hostname" 3>&1 1>&2 2>&3)
         ANSWER=$?
         if [ ! $ANSWER = 0 ]; then
                 echo "User canceled"
@@ -70,7 +70,7 @@ SAMBAAD_INSTALL() {
 		echo "User canceled"
 		exit 1
 	fi
-	if [ -z "$HOSTNAME" ] || [ -z "$REALM" ] || [ -z "$PASSWORD" ]; then
+	if [ -z "$HNAME" ] || [ -z "$REALM" ] || [ -z "$PASSWORD" ]; then
 		whiptail --msgbox "Please fill in all fields.." --title "SambaAD Install" --backtitle "Samba Active Directory Installation" 0 0 0
 		SAMBAAD_INSTALL
 	fi
@@ -84,8 +84,9 @@ SAMBAAD_INSTALL() {
 
 	SERVER_IP=$(ip r | grep link | grep src | cut -d '/' -f2 | cut -d'c' -f3 | cut -d ' ' -f2)
 	DOMAIN=$(echo $REALM | cut -d "." -f1)
-	sed -i "/127.0.1.1/ c 127.0.1.1 $HOSTNAME.$REALM $HOSTNAME" /etc/hosts
-	hostnamectl set-hostname $HOSTNAME.$REALM
+	#sed -i "/127.0.1.1/ c 127.0.1.1 $HOSTNAME.$REALM $HOSTNAME" /etc/hosts
+	sed -i "/127.0.1.1/ c 127.0.1.1 $HNAME.$REALM $HNAME $REALM" /etc/hosts
+	hostnamectl set-hostname $HNAME.$REALM
 	
 	export DEBIAN_FRONTEND=noninteractive
 	apt-get -y update && apt-get -y upgrade && apt-get -y autoremove
@@ -108,10 +109,10 @@ SAMBAAD_INSTALL() {
 	rm /etc/samba/smb.conf
 	samba-tool domain provision --server-role=dc --use-rfc2307 --realm="$REALM" --domain="$DOMAIN" --adminpass="$PASSWORD"
 	
-	#Log Config
-	sed -i '/server services =/a log level = 4' /etc/samba/smb.conf
-	sed -i '/log level =/a log file = /var/log/samba/$REALM.log' /etc/samba/smb.conf
-	sed -i '/log file =/a debug timestamp = yes' /etc/samba/smb.conf
+	##Log Config
+	#sed -i '/server services =/a log level = 4' /etc/samba/smb.conf
+	#sed -i '/log level =/a log file = /var/log/samba/$REALM.log' /etc/samba/smb.conf
+	#sed -i '/log file =/a debug timestamp = yes' /etc/samba/smb.conf
 	
 	#Time/Sync Config
 	ntpdate -bu pool.ntp.org
@@ -137,7 +138,7 @@ forwarders {
 8.8.8.8;
 };
 
-allow-query {  any;};
+allow-query { any; };
 dnssec-validation no;
 
 auth-nxdomain no; #RFC1035
@@ -155,15 +156,20 @@ database "dlopen /usr/lib/x86_64-linux-gnu/samba/bind9/dlz_bind9_10.so";
 };
 EOF
 
-cat > /etc/default/bind << EOF
+cat > /etc/default/named << EOF
 RESOLVCONF=no
 OPTIONS="-4 -u bind"
 EOF
-chmod 644 /etc/default/bind9
+chmod 644 /etc/default/named
 
 sed -i 's/dns forwarder = .*/server services = -dns/' /etc/samba/smb.conf
 mkdir -p /var/lib/samba/bind-dns
 mkdir -p /var/lib/samba/bind-dns/dns
+
+##Log Config
+sed -i '/server services =/a log level = 4' /etc/samba/smb.conf
+sed -i '/log level =/a log file = /var/log/samba/$REALM.log' /etc/samba/smb.conf
+sed -i '/log file =/a debug timestamp = yes' /etc/samba/smb.conf
 
 samba_upgradedns --dns-backend=BIND9_DLZ
 
