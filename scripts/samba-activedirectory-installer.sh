@@ -32,14 +32,12 @@ whiptail --msgbox \
 
 CHECK_DISTRO() {
 cat /etc/*-release /etc/issue > "/tmp/distrocheck"
-if grep -qi "debian\|ubuntu" "/tmp/distrocheck"; then
-REP=APT
-elif grep -qi "centos\|rocky\|red hat" "/tmp/distrocheck"; then
-REP=YUM
+if grep -qi "debian" "/tmp/distrocheck"; then
+DIST=DEB
 fi
 rm /tmp/distrocheck
 # Not support message
-if [ ! "$REP" = "APT" ]; then
+if [ ! "$DIST" = "DEB" ]; then
 $RED
 echo -e
 echo "-------------------------------------------------------------------------------------"
