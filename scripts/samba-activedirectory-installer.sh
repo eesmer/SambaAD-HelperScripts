@@ -37,15 +37,25 @@ DIST=DEB
 fi
 rm /tmp/distrocheck
 # Not support message
-if [ ! "$DIST" = "DEB" ]; then
-$RED
-echo -e
-echo "-------------------------------------------------------------------------------------"
-echo -e "This script has been tested in Debian environment.\nIt is compatible with Debian. "
-echo "-------------------------------------------------------------------------------------"
-echo -e
-$NOCOL
-exit 1
+if [ ! "$REP" = "DEB" ]; then
+	$RED
+	echo -e
+	echo "-------------------------------------------------------------------------------------"
+	echo -e "This script has been tested in Debian environment.\nIt is compatible with Debian. "
+	echo "-------------------------------------------------------------------------------------"
+	exit 1
+	$NOCOL
+fi
+VER=$(cat /etc/debian_version | cut -d "." -f1)
+if [ "$VER" -gt "11" ]; then
+	$RED
+	echo -e
+	echo "-------------------------------------------------------------------------------------"
+	echo -e "This script has been tested with Debian 11 \nIt is recommended to use it only with Debian 11"
+	echo "-------------------------------------------------------------------------------------"
+	echo -e
+	$NOCOL
+	exit 1
 fi
 }
 
