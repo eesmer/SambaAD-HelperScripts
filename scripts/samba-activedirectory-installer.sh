@@ -31,6 +31,7 @@ whiptail --msgbox \
         \nhttps://github.com/eesmer/DebianDC" 20 90 45
 
 CHECK_DISTRO() {
+# Checks are made for Debian 11 compatibility.
 cat /etc/*-release /etc/issue > "/tmp/distrocheck"
 if grep -qi "debian" "/tmp/distrocheck"; then
 DIST=DEB
