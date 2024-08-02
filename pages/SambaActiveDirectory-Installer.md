@@ -1,10 +1,10 @@
 ## Samba Active Directory Installer
 
 ### About of Installer Script
-This script requests the necessary information for the Domain installation and performs the domain installation according to the information entered. <br>
-The machine on which this script runs is set up as a Domain Controller. <br> 
-With this script, the host machine assumes the PDC role and runs the Bind9 DNS service. <br>
-**Tested environment:** Debian 11
+This script, 
+- It installs the Samba package and its requirements.
+- It installs and configures bind9 for DNS.
+- It installs and configures the chrony service for the NTP service.
 
 ---
 
