@@ -11,3 +11,4 @@ bash  samba-activedirectory-installer.sh
 ---
 
 ### About of Installer Script
+This script requests the necessary information for the Domain installation and performs the domain installation according to the information entered.
