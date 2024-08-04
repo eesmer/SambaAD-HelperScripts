@@ -1,6 +1,6 @@
 ## Samba Active Directory Installer
 
-### About of Installer Script
+### About of Script
 This script, 
 - It installs the Samba package and its requirements.
 - It installs and configures bind9 for DNS.
