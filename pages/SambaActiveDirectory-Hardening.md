@@ -4,6 +4,8 @@
 This script, disables or removes non-essential Active Directory settings in Samba configuration. <br>
 Contains AD related and best practices. <br>
 
+**Please take a backup and trying do not apply without understanding the configuration in each line.**
+
 ---
 
 ```
