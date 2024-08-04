@@ -1,6 +1,6 @@
 ## Samba Active Directory Reporting
 
-### About of Installer Script
+### About of Script
 This script, it creates a report showing information
 - about the domain
 - applied policies
