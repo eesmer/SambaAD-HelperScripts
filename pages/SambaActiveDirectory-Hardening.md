@@ -11,3 +11,4 @@ bash  samba-activedirectory-hardening.sh
 ---
 
 ### About of Installer Script
+This script, disables or removes non-essential Active Directory settings in Samba configuration.
