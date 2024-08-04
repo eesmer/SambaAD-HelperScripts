@@ -3,6 +3,7 @@
 SERVERNAME=$(cat /etc/hostname)
 SERVERIP=$(ip r |grep link |grep src |cut -d'/' -f2 |cut -d'c' -f3 |cut -d' ' -f2)
 DOMAINNAME=$(cat /etc/samba/smb.conf | grep "realm" | cut -d "=" -f2 | xargs)
+KERBEROSNAME=$(cat /etc/krb5.conf | grep default_realm | cut -d"=" -f2 | xargs)
 SERVERROLE=$(cat /etc/samba/smb.conf | grep "server role" | cut -d "=" -f2 | xargs)
 FORESTLEVEL=$(samba-tool domain level show | grep "Forest function level:" | cut -d ":" -f2 | xargs)
 DOMAINLEVEL=$(samba-tool domain level show | grep "Domain function level:" | cut -d ":" -f2 | xargs)
@@ -32,6 +33,7 @@ whiptail --msgbox \
 \nHostName                 : $SERVERNAME \
 \nServer IP Addr.          : $SERVERIP \
 \nDomain Name              : $DOMAINNAME \
+\nKerberos Name            : $KERBEROSNAME \
 \nServer Role              : $SERVERROLE \
 \nForest Level             : $FORESTLEVEL \
 \nDomain Level             : $DOMAINLEVEL \
