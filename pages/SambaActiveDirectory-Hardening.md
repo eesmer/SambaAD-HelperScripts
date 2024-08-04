@@ -1,5 +1,10 @@
 ## Samba Active Directory Hardening
 
+### About of Installer Script
+This script, disables or removes non-essential Active Directory settings in Samba configuration. <br>
+Contains AD related and best practices. <br>
+
+---
 
 ```
 wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/scripts/samba-activedirectory-hardening.sh
@@ -7,9 +12,3 @@ wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/scrip
 ```
 bash  samba-activedirectory-hardening.sh
 ```
-
----
-
-### About of Installer Script
-This script, disables or removes non-essential Active Directory settings in Samba configuration. <br>
-Contains AD related and best practices. <br>
