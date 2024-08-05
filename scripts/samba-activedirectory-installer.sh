@@ -44,8 +44,8 @@ if [ ! "$REP" = "DEB" ]; then
 	echo "-------------------------------------------------------------------------------------"
 	echo -e "This script has been tested in Debian environment.\nIt is compatible with Debian. "
 	echo "-------------------------------------------------------------------------------------"
-	exit 1
 	$NOCOL
+	exit 1
 fi
 VER=$(cat /etc/debian_version | cut -d "." -f1)
 if [ "$VER" = "11" ]; then
