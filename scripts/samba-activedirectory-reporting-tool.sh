@@ -71,6 +71,7 @@ whiptail --msgbox \
 \nhttps://github.com/eesmer/SambaAD-HelperScripts" 0 0 0
 #20 90 45
 
+# Show PortList
 whiptail --title "Port List" --msgbox "$PORTS" 20 60
 
 exit 1
