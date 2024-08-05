@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if ! [ -x "$(command -v nmap)" ]; then
+        apt-get -y install nmap
+fi
+
 SERVERNAME=$(cat /etc/hostname)
 SERVERIP=$(ip r |grep link |grep src |cut -d'/' -f2 |cut -d'c' -f3 |cut -d' ' -f2)
 DOMAINNAME=$(cat /etc/samba/smb.conf | grep "realm" | cut -d "=" -f2 | xargs)
@@ -30,6 +34,7 @@ DBSIZE=$(du -skh /var/lib/samba/private/sam.ldb.d/)
 # Listening and Open Ports
 nmap 127.0.0.1 > /tmp/portlist.txt
 PORTS=$(grep -A 100 'PORT' /tmp/portlist.txt | grep -v "Nmap done")
+rm /tmp/portlist.txt
 
 whiptail --msgbox \
 ".:: Samba Active Directory Domain Controller Server Report ::. \
