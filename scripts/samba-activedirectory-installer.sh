@@ -38,7 +38,7 @@ DIST=DEB
 fi
 rm /tmp/distrocheck
 # Not support message
-if [ ! "$REP" = "DEB" ]; then
+if [ ! "$DIST" = "DEB" ]; then
 	$RED
 	echo -e
 	echo "-------------------------------------------------------------------------------------"
