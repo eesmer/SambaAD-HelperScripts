@@ -27,6 +27,10 @@ FDNSMASTER=$(samba-tool fsmo show |grep "ForestDnsZonesMasterRole" |cut -d "," -
 SCHEMAINFO=$(samba-tool ldapcmp ldap://localhost ldap://localhost --filter=objectclass=schema | grep "Result for" | awk {'print $4,$5'})
 DBSIZE=$(du -skh /var/lib/samba/private/sam.ldb.d/)
 
+# Listening and Open Ports
+nmap 127.0.0.1 > /tmp/portlist.txt
+PORTS=$(grep -A 100 'PORT' /tmp/portlist.txt | grep -v "Nmap done")
+
 whiptail --msgbox \
 ".:: Samba Active Directory Domain Controller Server Report ::. \
 \n---------------------------------------------------------------- \
@@ -61,6 +65,8 @@ whiptail --msgbox \
 \n\n---------------------------------------------------------------- \
 \nhttps://github.com/eesmer/SambaAD-HelperScripts" 0 0 0
 #20 90 45
+
+whiptail --title "Port List" --msgbox "$PORTS" 20 60
 
 exit 1
 
