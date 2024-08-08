@@ -52,7 +52,7 @@ if [ "$VER" = "11" ]; then
 	$RED
 	echo -e
 	echo "-------------------------------------------------------------------------------------"
-	echo -e "This script has been tested with Debian 11 \nIt is recommended to use it only with Debian 11"
+  echo -e "This script has been tested with Debian 11 and Debian 12 \nIt is recommended to use it with Debian 11 or Debian12"
 	echo "-------------------------------------------------------------------------------------"
 	echo -e
 	$NOCOL
