@@ -45,7 +45,22 @@ if [ ! "$DIST" = "DEB" ]; then
 	echo -e "This script has been tested in Debian environment.\nIt is compatible with Debian. "
 	echo "-------------------------------------------------------------------------------------"
 	$NOCOL
-	exit 1
+elif [ "$DIST" = "11" ]
+then
+cat > "/etc/apt/sources.list" << EOF
+deb http://ftp2.de.debian.org/debian/ bullseye main contrib non-free
+deb http://security.debian.org/debian-security bullseye-security main contrib non-free
+deb http://ftp2.de.debian.org/debian/ bullseye-updates main contrib non-free
+EOF
+elif [ "$DIST" = "12" ]
+then
+cat > "/etc/apt/sources.list" << EOF
+deb http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
+deb http://deb.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+deb http://deb.debian.org/debian/ bookworm-updates main contrib non-free non-free-firmware
+EOF
+
+exit 1
 fi
 VER=$(cat /etc/debian_version | cut -d "." -f1)
 if [ ! "$VER" = "11" ] || [ ! "$VER" = "12" ]; then
