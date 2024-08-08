@@ -48,8 +48,8 @@ if [ ! "$DIST" = "DEB" ]; then
 	exit 1
 fi
 VER=$(cat /etc/debian_version | cut -d "." -f1)
-if [ "$VER" = "11" ]; then
-	$RED
+if [ ! "$VER" = "11" ] || [ ! "$VER" = "12" ]; then
+  $RED
 	echo -e
 	echo "-------------------------------------------------------------------------------------"
   echo -e "This script has been tested with Debian 11 and Debian 12 \nIt is recommended to use it with Debian 11 or Debian12"
