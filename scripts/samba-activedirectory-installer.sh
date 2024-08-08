@@ -31,47 +31,32 @@ whiptail --msgbox \
         \nhttps://github.com/eesmer/DebianDC" 20 90 45
 
 CHECK_DISTRO() {
-# Checks are made for Debian 11 compatibility.
 cat /etc/*-release /etc/issue > "/tmp/distrocheck"
-if grep -qi "debian" "/tmp/distrocheck"; then
-DIST=DEB
+grep "debian" "/tmp/distrocheck" >/dev/null
+if [ "$?" = "0" ]; then
+	DIST=DEB
 fi
 rm /tmp/distrocheck
 # Not support message
-if [ ! "$DIST" = "DEB" ]; then
+if [ "$DIST" = "DEB" ]; then
+	VER=$(cat /etc/debian_version | cut -d "." -f1)
+	if [ "$VER" -lt "11" ]; then
+		$RED
+		echo -e
+		echo "-------------------------------------------------------------------------------------"
+		echo -e "This script has been tested with Debian 11 and Debian 12 \nIt is recommended to use it with Debian 11 or Debian 12"
+		echo "-------------------------------------------------------------------------------------"
+		echo -e
+		$NOCOL
+		exit 1
+	fi
+else
 	$RED
 	echo -e
 	echo "-------------------------------------------------------------------------------------"
 	echo -e "This script has been tested in Debian environment.\nIt is compatible with Debian. "
 	echo "-------------------------------------------------------------------------------------"
 	$NOCOL
-elif [ "$DIST" = "11" ]
-then
-cat > "/etc/apt/sources.list" << EOF
-deb http://ftp2.de.debian.org/debian/ bullseye main contrib non-free
-deb http://security.debian.org/debian-security bullseye-security main contrib non-free
-deb http://ftp2.de.debian.org/debian/ bullseye-updates main contrib non-free
-EOF
-elif [ "$DIST" = "12" ]
-then
-cat > "/etc/apt/sources.list" << EOF
-deb http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
-deb http://deb.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
-deb http://deb.debian.org/debian/ bookworm-updates main contrib non-free non-free-firmware
-EOF
-
-exit 1
-fi
-VER=$(cat /etc/debian_version | cut -d "." -f1)
-if [ ! "$VER" = "11" ] || [ ! "$VER" = "12" ]; then
-  $RED
-	echo -e
-	echo "-------------------------------------------------------------------------------------"
-  echo -e "This script has been tested with Debian 11 and Debian 12 \nIt is recommended to use it with Debian 11 or Debian12"
-	echo "-------------------------------------------------------------------------------------"
-	echo -e
-	$NOCOL
-	exit 1
 fi
 }
 
