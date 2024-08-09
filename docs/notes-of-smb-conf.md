@@ -24,3 +24,9 @@ The log-level levels to be specified in the smb.conf file are between 0-10. <br>
 **3: High-level logging:** This is the lowest level to be used during troubleshooting. <br>
 **4: Detailed logging:** All process steps and status are reported. <br>
 **5: Very Detailed logging:** Every event is reported. It should only be used for detailed debugging needs. <br>
+**6-10: Extremely Detailed:** These levels provide too much information. They should be used temporarily and are not suitable for production environments. <br>
+
+- **usage**
+```
+log level = 3
+```
