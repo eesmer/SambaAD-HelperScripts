@@ -26,7 +26,6 @@ The log-level levels to be specified in the smb.conf file are between 0-10. <br>
 - **5: Very Detailed logging:** Every event is reported. It should only be used for detailed debugging needs. <br>
 - **6-10: Extremely Detailed:** These levels provide too much information. They should be used temporarily and are not suitable for production environments. <br>
 
-- **usage**
 ```
 log level = 3
 log file = /var/log/samba/$DOMAIN_NAME.log
