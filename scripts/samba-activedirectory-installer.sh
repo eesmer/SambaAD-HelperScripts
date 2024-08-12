@@ -176,9 +176,9 @@ mkdir -p /var/lib/samba/bind-dns
 mkdir -p /var/lib/samba/bind-dns/dns
 
 ##Log Config
-sed -i '/server services =/a log level = 2' /etc/samba/smb.conf
+sed -i "/server services =/a log level = 2" /etc/samba/smb.conf
 sed -i "/log level =/a log file = /var/log/samba/$REALM.log" /etc/samba/smb.conf
-sed -i '/log file =/a debug timestamp = yes' /etc/samba/smb.conf
+sed -i "/log file =/a debug timestamp = yes" /etc/samba/smb.conf
 
 samba_upgradedns --dns-backend=BIND9_DLZ
 
