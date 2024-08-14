@@ -61,13 +61,13 @@ fi
 }
 
 SAMBAAD_INSTALL() {
-	HNAME=$(whiptail --inputbox "Enter DC Machine Hostname" 8 39 --title "DC Hostname" 3>&1 1>&2 2>&3)
+	HNAME=$(whiptail --inputbox "Enter DC Machine Hostname (e.g.,DC01)" 10 50 --title "DC Hostname" --backtitle "DC Hostname" 3>&1 1>&2 2>&3)
         ANSWER=$?
         if [ ! $ANSWER = 0 ]; then
                 echo "User canceled"
 		exit 1
         fi
-        REALM=$(whiptail --inputbox "Enter Domain Name" 8 39 --title "DomainName" 3>&1 1>&2 2>&3)
+	REALM=$(whiptail --inputbox "Enter Domain Name (e.g., EXAMPLE.LOC)" 10 50 --title "DomainName" --backtitle "Domain Name" 3>&1 1>&2 2>&3)
 	ANSWER=$?
 	if [ ! $ANSWER = 0 ]; then
 		echo "User canceled"
