@@ -73,7 +73,7 @@ SAMBAAD_INSTALL() {
 		echo "User canceled"
 		exit 1
 	fi
-        PASSWORD=$(whiptail --passwordbox "Enter Administrator Password" 8 39 3>&1 1>&2 2>&3)
+        PASSWORD=$(whiptail --passwordbox "Enter Administrator Password" 10 50 --title "Administrator Password" --backtitle "Administrator Password" 3>&1 1>&2 2>&3)
 	ANSWER=$?
 	if [ ! $ANSWER = 0 ]; then
 		echo "User canceled"
