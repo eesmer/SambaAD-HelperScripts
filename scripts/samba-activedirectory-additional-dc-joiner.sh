@@ -48,3 +48,16 @@ fi
 hostnamectl set-hostname $HNAME.$DOMAIN
 echo "domain $DOMAIN" > /etc/resolv.conf && echo "search $DOMAIN" >> /etc/resolv.conf && echo "nameserver $DNSSRV" >> /etc/resolv.conf
 sed -i "/127.0.1.1/ c 127.0.1.1 $HNAME.$DOMAIN $HNAME" /etc/hosts
+
+ping $DOMAIN -c 1 &> /dev/null
+pingReturn=$?
+
+if [ $pingReturn -eq 1 ]; then
+whiptail --msgbox "$DOMAIN did not ping reply" 10 50
+exit 1
+elif [ $pingReturn -eq 2 ]; then
+whiptail --msgbox "$DOMAIN name could not be resolved\n\nCheck the DNS Server information ($DNSSRV)" 10 50
+exit 1
+else
+whiptail --msgbox "Great!!\n$DOMAIN Domain Name found.\nThe join process can be started" 10 50
+fi
