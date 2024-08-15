@@ -38,3 +38,9 @@ ANSWER=$?
                 echo "User canceled"
                 exit 1
         fi
+
+if [ "$HNAME" = "" ] || [ "$DNSSRV" = "" ] || [ "$DOMAIN" = "" ] || [ "$PASSWORD" = "" ]
+then
+whiptail --msgbox "Please fill all the fields" 10 50
+exit 1
+fi
