@@ -68,6 +68,15 @@ PACK_INSTALL=FALSE
 export DEBIAN_FRONTEND=noninteractive
 apt-get -y install bind9 bind9utils dnsutils krb5-user samba --install-recommends winbind && PACK_INSTALL=TRUE
 if [ "$PACK_INSTALL" = "FALSE" ];then
-whiptail --msgbox "Operation cannot continue!!\nThe required packages could not be installed.\nPlease check the internet access" 10 50
-exit 1
+    whiptail --msgbox "Operation cannot continue!!\nThe required packages could not be installed.\nPlease check the internet access" 10 50
+    exit 1
 fi
+
+DOMAIN_JOIN=FALSE
+rm /etc/samba/smb.conf
+samba-tool domain join \
+$DOMAIN DC --dns-backend=BIND9_DLZ -U Administrator --password=$PASSWORD && DOMAIN_JOIN=TRUE
+        if [ "$DOMAIN_JOIN" = "FALSE" ];then
+            whiptail --msgbox "Could not join domain!!\nPlease check the information you entered" 10 50
+            exit 1
+        fi
