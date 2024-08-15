@@ -99,3 +99,32 @@ INTERNAL1=127.0.0.0/8
 INTERNAL2=$(ip r |grep link |grep src |cut -d' ' -f1)
 SUBNET=$(ip r |grep link |grep src |cut -d' ' -f1 |cut -d'/' -f2)
 PDC=$(nslookup $DOMAIN |grep Server: |cut -d ':' -f2)
+
+cat > /etc/bind/named.conf.options << EOF
+acl internals {
+$INTERNAL1;
+$INTERNAL2;
+};
+
+options {
+directory "/var/cache/bind";
+auth-nxdomain yes;
+empty-zones-enable no;
+notify no;
+minimal-responses yes;
+
+dnssec-validation no;
+dnssec-enable no;
+dnssec-lookaside no;
+
+allow-transfer { $PDC; };
+allow-query { internals; };
+allow-query-cache { "internals"; };
+allow-recursion { internals; };
+
+listen-on-v6 { none; };
+sortlist { $SERVER_IP; };
+tkey-gssapi-keytab "/var/lib/samba/bind-dns/dns.keytab";
+
+};
+EOF
