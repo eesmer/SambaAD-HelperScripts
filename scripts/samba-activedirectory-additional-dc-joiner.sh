@@ -44,3 +44,7 @@ then
 whiptail --msgbox "Please fill all the fields" 10 50
 exit 1
 fi
+
+hostnamectl set-hostname $HNAME.$DOMAIN
+echo "domain $DOMAIN" > /etc/resolv.conf && echo "search $DOMAIN" >> /etc/resolv.conf && echo "nameserver $DNSSRV" >> /etc/resolv.conf
+sed -i "/127.0.1.1/ c 127.0.1.1 $HNAME.$DOMAIN $HNAME" /etc/hosts
