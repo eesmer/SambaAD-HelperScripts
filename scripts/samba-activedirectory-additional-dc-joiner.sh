@@ -113,9 +113,9 @@ empty-zones-enable no;
 notify no;
 minimal-responses yes;
 
-dnssec-validation no;
-dnssec-enable no;
-dnssec-lookaside no;
+dnssec-validation no; # Do not use this line on Debian 12. Will be tested, will be fixed
+dnssec-enable no;     # Do not use this line on Debian 12. Will be tested, will be fixed
+dnssec-lookaside no;  # Do not use this line on Debian 12. Will be tested, will be fixed
 
 allow-transfer { $PDC; };
 allow-query { internals; };
