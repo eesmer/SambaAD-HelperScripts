@@ -134,3 +134,7 @@ chmod 644 /var/lib/samba/bind-dns/named.conf
 chown root:bind /etc/bind/named.conf.local
 chmod 644 /etc/bind/named.conf.local
 chgrp bind /var/lib/samba/bind-dns/
+
+systemctl unmask samba-ad-dc.service
+systemctl enable samba-ad-dc.service
+systemctl start samba-ad-dc.service
