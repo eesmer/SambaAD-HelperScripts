@@ -138,3 +138,6 @@ chgrp bind /var/lib/samba/bind-dns/
 systemctl unmask samba-ad-dc.service
 systemctl enable samba-ad-dc.service
 systemctl start samba-ad-dc.service
+
+systemctl restart samba-ad-dc.service
+systemctl restart bind9.service
