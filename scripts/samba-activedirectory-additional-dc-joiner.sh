@@ -61,3 +61,13 @@ exit 1
 else
 whiptail --msgbox "Great!!\n$DOMAIN Domain Name found.\nThe join process can be started" 10 50
 fi
+
+# INSTALL PACKAGES
+function ADCSETUP {
+PACK_INSTALL=FALSE
+export DEBIAN_FRONTEND=noninteractive
+apt-get -y install bind9 bind9utils dnsutils krb5-user samba --install-recommends winbind && PACK_INSTALL=TRUE
+if [ "$PACK_INSTALL" = "FALSE" ];then
+whiptail --msgbox "Operation cannot continue!!\nThe required packages could not be installed.\nPlease check the internet access" 10 50
+exit 1
+fi
