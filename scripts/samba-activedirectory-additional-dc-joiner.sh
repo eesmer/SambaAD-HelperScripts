@@ -80,3 +80,22 @@ $DOMAIN DC --dns-backend=BIND9_DLZ -U Administrator --password=$PASSWORD && DOMA
             whiptail --msgbox "Could not join domain!!\nPlease check the information you entered" 10 50
             exit 1
         fi
+
+# BIND CONFIG
+rm /etc/default/bind9
+cat > /etc/default/bind9 << EOF
+RESOLVCONF=no
+OPTIONS="-u bind -4"
+EOF
+chmod 644 /etc/default/bind9
+
+chmod 644 /etc/default/bind9
+echo 'include "/var/lib/samba/bind-dns/named.conf";' > /etc/bind/named.conf.local
+
+rm /etc/bind/named.conf.options
+
+SERVER_IP=$(ip r |grep link |grep src |cut -d'/' -f2 |cut -d'c' -f3 |cut -d' ' -f2)
+INTERNAL1=127.0.0.0/8
+INTERNAL2=$(ip r |grep link |grep src |cut -d' ' -f1)
+SUBNET=$(ip r |grep link |grep src |cut -d' ' -f1 |cut -d'/' -f2)
+PDC=$(nslookup $DOMAIN |grep Server: |cut -d ':' -f2)
