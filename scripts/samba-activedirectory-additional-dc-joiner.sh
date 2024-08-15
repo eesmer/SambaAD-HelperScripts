@@ -141,3 +141,7 @@ systemctl start samba-ad-dc.service
 
 systemctl restart samba-ad-dc.service
 systemctl restart bind9.service
+
+whiptail --msgbox "The $HNAME machine has been added to the $DOMAIN as ADDC" 10 50
+reboot
+}
