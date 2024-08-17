@@ -4,3 +4,12 @@ You will need to know the password for the Administrator user account to complet
 
 With the ADC installed;
 It becomes a 2nd DC machine that runs simultaneously in the domain environment and acts as a DC for all components in the Active Directory environment (dns records, ad objects, database, fsmo roles, etc.).
+
+---
+
+```
+wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/scripts/samba-activedirectory-adc-joiner.sh
+```
+```
+bash  samba-activedirectory-adc-joiner.sh
+```
