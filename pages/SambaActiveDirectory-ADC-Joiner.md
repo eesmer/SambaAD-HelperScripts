@@ -1,4 +1,5 @@
-This script adds the machine it runs on to a Samba AD environment set up with the installer script, as an additional domain controller.
+This script <br>
+adds the machine it runs on to a Samba AD environment set up with the installer script, as an additional domain controller.
 You will need to know the password for the Administrator user account to complete the installation.
 
 With the ADC installed;
