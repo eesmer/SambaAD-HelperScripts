@@ -10,7 +10,7 @@ Then, it performs the Domain Name Provisioning process according to the informat
 The machine on which it is run takes the PDC role and starts working as a DC for the established domain. <br>
 <br>
 As the `root`: <ins>perform operations as root user.!!</ins> <br>
-**It should be run in a Debian 11 or Debian 12 environment.**
+It should be run in a Debian 11 or Debian 12 environment.
 
 ---
 
