@@ -11,7 +11,7 @@ These repos contain collaborative work. <br>
 - [Samba Active Directory Installer](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/pages/SambaActiveDirectory-Installer.md)
 - [Samba Active Directory Reporting](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/pages/SambaActiveDirectory-Reporting.md)
 - [Samba Active Directory Hardening](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/pages/SambaActiveDirectory-Hardening.md)
-- [Samba Active Directory Hardening](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/pages/SambaActiveDirectory-ADC-Joiner.md)
+- [Samba Active Directory ADC Joiner](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/pages/SambaActiveDirectory-ADC-Joiner.md)
 
 ---
 
