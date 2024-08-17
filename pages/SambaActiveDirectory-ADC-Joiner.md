@@ -8,7 +8,7 @@ It becomes a 2nd DC machine that runs simultaneously in the domain environment a
 ---
 
 ```
-wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/scripts/samba-activedirectory-adc-joiner.sh
+wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/scripts/samba-activedirectory-additional-dc-joiner.sh
 ```
 ```
 bash  samba-activedirectory-adc-joiner.sh
