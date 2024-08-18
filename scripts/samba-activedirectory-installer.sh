@@ -30,10 +30,19 @@ whiptail --msgbox \
         \nhttps://github.com/eesmer/sambadtui \
         \nhttps://github.com/eesmer/DebianDC" 20 90 45
 
+CHECKRUN_ROOT() {
+if ! [[ $EUID -eq 0 ]]; then
+	$RED
+	echo "This script must be run with root user"
+	$NOCOL
+	exit 1
+fi
+}
+
 CHECK_DISTRO() {
 cat /etc/*-release /etc/issue > "/tmp/distrocheck"
 grep "debian" "/tmp/distrocheck" >/dev/null
-if [ "$?" = "0" ]; then
+if [[ "$?" = "0" ]]; then
 	DIST=DEB
 fi
 rm /tmp/distrocheck
@@ -188,5 +197,6 @@ systemctl restart samba-ad-dc
 systemctl restart bind9
 }
 
+CHECKRUN_ROOT
 CHECK_DISTRO
 SAMBAAD_INSTALL
