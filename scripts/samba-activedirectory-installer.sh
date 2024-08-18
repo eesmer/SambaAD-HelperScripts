@@ -42,14 +42,14 @@ fi
 CHECK_DISTRO() {
 cat /etc/*-release /etc/issue > "/tmp/distrocheck"
 grep "debian" "/tmp/distrocheck" >/dev/null
-if [[ "$?" = "0" ]]; then
+if [[ $? = 0 ]]; then
 	DIST=DEB
 fi
 rm /tmp/distrocheck
 # Not support message
-if [ "$DIST" = "DEB" ]; then
+if [[ $DIST = DEB ]]; then
 	VER=$(cat /etc/debian_version | cut -d "." -f1)
-	if [ "$VER" -lt "11" ]; then
+	if [[ $VER -lt 11 ]]; then
 		$RED
 		echo -e
 		echo "-------------------------------------------------------------------------------------"
