@@ -4,6 +4,15 @@ if ! [ -x "$(command -v nmap)" ]; then
         apt-get -y install nmap
 fi
 
+CHECKRUN_ROOT() {
+if ! [[ $EUID -eq 0 ]]; then
+        $RED
+        echo "This script must be run with root user"
+        $NOCOL
+        exit 1
+fi
+}
+
 SERVERNAME=$(cat /etc/hostname)
 SERVERIP=$(ip r |grep link |grep src |cut -d'/' -f2 |cut -d'c' -f3 |cut -d' ' -f2)
 DOMAINNAME=$(cat /etc/samba/smb.conf | grep "realm" | cut -d "=" -f2 | xargs)
