@@ -1,15 +1,24 @@
 #!/bin/bash
 
-if ! [ -x "$(command -v nmap)" ]; then
-        apt-get -y install nmap
-fi
-
 CHECKRUN_ROOT() {
 if ! [[ $EUID -eq 0 ]]; then
         $RED
         echo "This script must be run with root user"
         $NOCOL
         exit 1
+fi
+}
+
+CHECK_COMMANDS() {
+if [[ ! -x $(command -v samba-tool) ]]; then
+	$RED
+	echo "samba-tool command not found. You must run this script on the DC machine"
+	$NOCOL
+	exit 1
+fi
+
+if ! [ -x "$(command -v nmap)" ]; then
+        apt-get -y install nmap
 fi
 }
 
@@ -85,6 +94,7 @@ REPORTING() {
 	}
 
 CHECKRUN_ROOT
+CHECK_COMMANDS
 REPORTING
 #samba-tool domain info $SERVER
 #samba-tool processes
