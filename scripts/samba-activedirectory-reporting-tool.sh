@@ -29,12 +29,15 @@ UPDATE_CONTROL() {
 }
 
 CHECKRUN_ROOT() {
-if ! [[ $EUID -eq 0 ]]; then
-        $RED
-        echo "This script must be run with root user"
-        $NOCOL
-        exit 1
-fi
+    $GREEN
+    echo "Checking root user session"
+    $NOCOL
+    if ! [[ $EUID -eq 0 ]]; then
+	    $RED
+	    echo "This script must be run with root user"
+	    $NOCOL
+	    exit 1
+    fi
 }
 
 CHECK_COMMANDS() {
