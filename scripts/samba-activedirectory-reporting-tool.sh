@@ -13,6 +13,19 @@ BLUE="tput setaf 12"
 NOCOL="tput sgr0"
 BOLD="tput bold"
 
+UPDATE_CONTROL() {
+    UPDATE_OUTPUT=$(apt update 2>&1)
+    if echo "$UPDATE_OUTPUT" | grep -qE "(Failed to fetch|Temporary failure resolving|Could not resolve|Some index files failed to download)"; then
+        echo "Some errors occurred during apt update. Please check internet or repository access."
+        #LOGFILE=$(mktemp)
+        echo "$UPDATE_OUTPUT" #> $LOGFILE
+        #echo -e
+        ##cat $LOGFILE
+        ##rm $LOGFILE
+        exit 1
+        fi
+}
+
 CHECKRUN_ROOT() {
 if ! [[ $EUID -eq 0 ]]; then
         $RED
