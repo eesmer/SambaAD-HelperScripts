@@ -58,6 +58,9 @@ REPORTING() {
 	NAMINGMASTER=$(samba-tool fsmo show |grep "DomainNamingMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
 	DDNSMASTER=$(samba-tool fsmo show |grep "DomainDnsZonesMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
 	FDNSMASTER=$(samba-tool fsmo show |grep "ForestDnsZonesMasterRole" |cut -d "," -f2 | cut -d "=" -f2)
+	# DC
+	DCLIST=$(samba-tool ou listobjects OU="Domain Controllers" | cut -d "," -f1 | cut -d "=" -f2)
+	# DB & SCHEMA
 	SCHEMAINFO=$(samba-tool ldapcmp ldap://localhost ldap://localhost --filter=objectclass=schema | grep "Result for" | awk {'print $4,$5'})
 	DBSIZE=$(du -skh /var/lib/samba/private/sam.ldb.d/)
 	# Listening and Open Ports
@@ -81,6 +84,10 @@ REPORTING() {
 		\nMinimum Password Length  : $MINPASSLENGTH \
 		\nMinimum Password Age     : $MINPASSAGE \
 		\nMaximum Password Age     : $MAXPASSAGE \
+		\n---------------------------------------------------------------- \
+		\nRegistered DC List \
+		\n---------------------------------------------------------------- \
+		\n$DCLIST \
 		\n---------------------------------------------------------------- \
 		\nSchema Master DC         : $SCHEMAMASTER \
 		\nInfrastructure Master DC : $INFRAMASTER \
