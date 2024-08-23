@@ -20,10 +20,12 @@ UPDATE_CONTROL() {
     $NOCOL
     UPDATE_OUTPUT=$(apt update 2>&1)
     if echo "$UPDATE_OUTPUT" | grep -qE "(Failed to fetch|Temporary failure resolving|Could not resolve|Some index files failed to download)"; then
+        $RED
         echo "Some errors occurred during apt update. Please check internet or repository access."
         echo "$UPDATE_OUTPUT" #> $LOGFILE
+        $NOCOL
         exit 1
-        fi
+    fi
 }
 
 CHECKRUN_ROOT() {
