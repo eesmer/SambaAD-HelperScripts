@@ -14,7 +14,6 @@ NOCOL="tput sgr0"
 BOLD="tput bold"
 
 UPDATE_CONTROL() {
-    echo -e
     $GREEN
     echo "Internet and repository access is controlled"
     $NOCOL
@@ -41,19 +40,25 @@ CHECKRUN_ROOT() {
 }
 
 CHECK_COMMANDS() {
-if [[ ! -x $(command -v samba-tool) ]]; then
-	$RED
-	echo "samba-tool command not found. You must run this script on the DC machine"
+	$GREEN
+	echo "Checking Samba AD Installation"
 	$NOCOL
-	exit 1
-fi
-
-if ! [ -x "$(command -v nmap)" ]; then
-        apt-get -y install nmap
-fi
+	if [[ ! -x $(command -v samba-tool) ]]; then
+		$RED
+		echo "samba-tool command not found. You must run this script on the DC machine"
+		$NOCOL
+		exit 1
+	fi
+	
+	if ! [ -x "$(command -v nmap)" ]; then
+		apt-get -y install nmap
+	fi
 }
 
 REPORTING() {
+	$GREEN
+	echo "Samba AD Report is being Generated"
+	$NOCOL
 	SERVERNAME=$(cat /etc/hostname)
 	SERVERIP=$(ip r |grep link |grep src |cut -d'/' -f2 |cut -d'c' -f3 |cut -d' ' -f2)
 	DOMAINNAME=$(cat /etc/samba/smb.conf | grep "realm" | cut -d "=" -f2 | xargs)
