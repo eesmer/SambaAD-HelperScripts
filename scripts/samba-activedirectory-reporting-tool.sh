@@ -130,6 +130,7 @@ REPORTING() {
 
 CHECKRUN_ROOT
 CHECK_COMMANDS
+UPDATE_CONTROL
 REPORTING
 #samba-tool domain info $SERVER
 #samba-tool processes
