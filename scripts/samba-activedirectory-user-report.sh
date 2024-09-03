@@ -22,9 +22,19 @@ done
 # User Accounts That Have Never Been Logged
 echo -e "\nUser Accounts That Have Never Been Logged In:" >> $REPORT_FILE
 samba-tool user list | while read user; do
-lastLogonTimestamp=$(samba-tool user show $user | grep -i lastLogonTimestamp | awk '{print $2}')
+LASTLOGON=$(samba-tool user show $ADUSER | grep -i lastLogonTimestamp | awk '{print $2}')
 
-if [ -z "$lastLogonTimestamp" ] || [ "$lastLogonTimestamp" -eq 0 ]; then
-	echo "$user" >> $REPORT_FILE
+if [ -z "$LASTLOGON" ] || [ "$LASTLOGON" -eq 0 ]; then
+	echo "$ADUSER" >> $REPORT_FILE
+fi
+done
+
+# User accounts with password set to Never Expiry
+echo -e "\nUser accounts with password set to Never Expiry:" >> $REPORT_FILE
+samba-tool user list | while read user; do
+USERACCOUNTCONTROL=$(samba-tool user show $ADUSER | grep -i userAccountControl | awk '{print $2}')
+
+if [[ "$USERACCOUNTCONTROL" =~ ^[0-9]+$ ]] && (( userAccountControl & 65536 )); then
+	echo "$ADUSER" >> $REPORT_FILE
 fi
 done
