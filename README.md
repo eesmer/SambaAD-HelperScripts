@@ -13,6 +13,10 @@ These repos contain collaborative work. <br>
 - [Samba Active Directory Hardening](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/pages/SambaActiveDirectory-Hardening.md)
 - [Samba Active Directory ADC Joiner](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/pages/SambaActiveDirectory-ADC-Joiner.md)
 
+<br>
+
+- [Samba Active Directory Users Report](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/pages/SambaActiveDirectory-Users-Report.md)
+
 ---
 
 - [smb.conf ](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/docs/notes-of-smb-conf.md)
