@@ -18,3 +18,13 @@ if [ "$USER_STATUS" -eq 514 ]; then
 	echo "$ADUSER" >> $REPORT_FILE
 fi
 done
+
+# User Accounts That Have Never Been Logged
+echo -e "\nUser Accounts That Have Never Been Logged In:" >> $REPORT_FILE
+samba-tool user list | while read user; do
+lastLogonTimestamp=$(samba-tool user show $user | grep -i lastLogonTimestamp | awk '{print $2}')
+
+if [ -z "$lastLogonTimestamp" ] || [ "$lastLogonTimestamp" -eq 0 ]; then
+	echo "$user" >> $REPORT_FILE
+fi
+done
