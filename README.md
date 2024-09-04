@@ -6,8 +6,6 @@ These repos contain collaborative work. <br>
 
 ---
 
-<br>
-
 ### Install and Configiuration
 - [Samba Active Directory Installer](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/pages/SambaActiveDirectory-Installer.md)
 - [Samba Active Directory Hardening](https://github.com/eesmer/SambaAD-HelperScripts/blob/master/pages/SambaActiveDirectory-Hardening.md)
