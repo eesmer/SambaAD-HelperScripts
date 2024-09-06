@@ -10,6 +10,8 @@ etc.
 
 `Should be run on the DC machine.`
 
+---
+
 ```
 wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/scripts/samba-activedirectory-users-report.sh
 ```
