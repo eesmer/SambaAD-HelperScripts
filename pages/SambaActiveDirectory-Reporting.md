@@ -6,7 +6,8 @@ This script, it creates a report showing information
 - applied policies
 - schema and fsmo roles and etc. <br>
 <br>
-Should be run on the DC machine. <br>
+
+`Should be run on the DC machine.`
 
 ---
 
