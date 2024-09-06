@@ -8,8 +8,11 @@
 
 - **Allow to only NTLMv2**
 ```
-ntlm auth = ntlmv2-only
+[global]
+   ntlm auth = no
+   client ntlmv2 auth = yes
 ```
+
 ---
 
 ### log-level usage
