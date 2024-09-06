@@ -1,5 +1,17 @@
 #!/bin/bash
 
+MAGENTA="tput setaf 1"
+GREEN="tput setaf 2"
+YELLOW="tput setaf 3"
+DGREEN="tput setaf 4"
+CYAN="tput setaf 6"
+WHITE="tput setaf 7"
+GRAY="tput setaf 8"
+RED="tput setaf 9"
+BLUE="tput setaf 12"
+NOCOL="tput sgr0"
+BOLD="tput bold"
+
 REPORT_FILE="ad_user_report_$(date +%Y%m%d).txt"
 
 echo -e "\nTotal Number of Users:" >> $REPORT_FILE
@@ -40,4 +52,8 @@ fi
 done
 
 echo -e
-echo "You can view the report from the file \necho ad_user_report_$(date +%Y%m%d).txt"
+$CYAN
+$BOLD
+echo "You can view the report from the file"
+$NOCOL
+echo "ad_user_report_$(date +%Y%m%d).txt"
