@@ -1,5 +1,5 @@
 ### NTLM versions compatibility
-- **Allow to NTLMv1 and later** <br>
+- **Allow to NTLMv1 and later**
 ```
 [global]
    ntlm auth = yes
@@ -12,6 +12,14 @@
    ntlm auth = no
    client ntlmv2 auth = yes
 ```
+
+- **Disable NTLM**
+```
+[global]
+   ntlm auth = no
+   client ntlmv2 auth = no
+```
+In this case, only Kerberos authentication is performed and NTLM is not used.
 
 ---
 
