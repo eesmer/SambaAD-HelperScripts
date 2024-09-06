@@ -1,4 +1,4 @@
-### NTLM versions compatibility
+## Authentication Configurations
 - **Allow to NTLMv1 and later**
 ```
 [global]
@@ -27,7 +27,7 @@ client lanman auth = no
 
 ---
 
-### log-level usage
+## Log Levels
 
 The log-level levels to be specified in the smb.conf file are between 0-10. <br>
 - **0: Minimum Logging:** Makes minimum log records. Only important errors and messages are recorded. <br>
