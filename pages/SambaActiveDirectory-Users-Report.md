@@ -11,6 +11,8 @@ etc.
 ```
 Should be run on the DC machine.
 ```
+As the `Should be run on the DC machine.`: <ins>perform operations as root user.!!</ins>
+
 
 ```
 wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/scripts/samba-activedirectory-users-report.sh
