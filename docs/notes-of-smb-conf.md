@@ -14,12 +14,12 @@
 ```
 
 - **Disable NTLM**
+In this case, only Kerberos authentication is performed and NTLM is not used.
 ```
 [global]
    ntlm auth = no
    client ntlmv2 auth = no
 ```
-In this case, only Kerberos authentication is performed and NTLM is not used.
 
 ---
 
