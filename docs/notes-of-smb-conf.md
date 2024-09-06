@@ -5,20 +5,24 @@
    ntlm auth = yes
    client ntlmv2 auth = yes
 ```
-
 - **Allow to only NTLMv2**
 ```
 [global]
    ntlm auth = no
    client ntlmv2 auth = yes
 ```
-
 - **Disable NTLM** <br>
 In this case, only Kerberos authentication is performed and NTLM is not used.
 ```
 [global]
    ntlm auth = no
    client ntlmv2 auth = no
+```
+- **Disable LANMAN**
+```
+[global]
+lanman auth = no
+client lanman auth = no
 ```
 
 ---
