@@ -51,3 +51,4 @@ The log-level levels to be specified in the smb.conf file are between 0-10. <br>
 log level = 3
 log file = /var/log/samba/$DOMAIN_NAME.log
 ```
+---
