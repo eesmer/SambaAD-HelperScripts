@@ -38,3 +38,6 @@ if [[ "$USERACCOUNTCONTROL" =~ ^[0-9]+$ ]] && (( userAccountControl & 65536 )); 
 	echo "$ADUSER" >> $REPORT_FILE
 fi
 done
+
+echo -e
+echo "You can view the report from the file: \nad_user_report_$(date +%Y%m%d).txt"
