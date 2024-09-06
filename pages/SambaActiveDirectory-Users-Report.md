@@ -8,11 +8,7 @@ This script generates a report of AD user accounts.
 - Shows user accounts that are not logged in <br>
 etc.
 
-```
-Should be run on the DC machine.
-```
-As the `Should be run on the DC machine.`: <ins>perform operations as root user.!!</ins>
-
+`Should be run on the DC machine.`
 
 ```
 wget https://raw.githubusercontent.com/eesmer/SambaAD-HelperScripts/master/scripts/samba-activedirectory-users-report.sh
