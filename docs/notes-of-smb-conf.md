@@ -13,7 +13,7 @@
    client ntlmv2 auth = yes
 ```
 
-- **Disable NTLM**
+- **Disable NTLM** <br>
 In this case, only Kerberos authentication is performed and NTLM is not used.
 ```
 [global]
