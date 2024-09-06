@@ -24,6 +24,14 @@ In this case, only Kerberos authentication is performed and NTLM is not used.
 lanman auth = no
 client lanman auth = no
 ```
+- **Only Kerberos Auth.**
+```
+ntlm auth = no
+client ntlmv2 auth = no
+lanman auth = no
+client lanman auth = no
+```
+
 
 ---
 
